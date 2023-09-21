@@ -15,8 +15,10 @@ protocol MainViewProtocol: AnyObject {
 // MARK: - MainPresenterProtocol
 protocol MainPresenterProtocol: AnyObject {
     init(view: MainViewProtocol)
+
     var users: [User]? { get set }
-    func getUsers(userName: String)
+    func getUsers(_ userName: String)
+    func delete(_ userIndex: Int)
 }
 
 // MARK: - MainPresenter
@@ -29,9 +31,15 @@ class MainPresenter: MainPresenterProtocol {
         self.users = [User]()
     }
 
-    func getUsers(userName: String) {
+    func getUsers(_ userName: String) {
         let newUser = User(name: userName, birthDate: "29", gender: "muzh")
         users?.append(newUser)
         view?.addUser()
     }
+
+    func delete(_ userIndex: Int) {
+        users?.remove(at: userIndex)
+    
+    }
+
 }

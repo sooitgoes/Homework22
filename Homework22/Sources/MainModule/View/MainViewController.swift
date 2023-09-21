@@ -80,15 +80,13 @@ class MainViewController: UIViewController {
 
     // MARK: - Action
     @objc func buttonPressed() {
-        presenter?.getUsers(userName: nameTextField.text ?? "")
+        presenter?.getUsers(nameTextField.text ?? "")
     }
 }
 
 // MARK: - UITableViewDataSource
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        guard let numbres = presenter?.users?.count else { return 0 }
-//        return numbres
         presenter?.users?.count ?? 0
     }
 
@@ -98,12 +96,20 @@ extension MainViewController: UITableViewDataSource {
         cell.textLabel?.text = users?.name
         return cell
     }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            tableView.beginUpdates()
+            let index = indexPath.row
+            presenter?.delete(index)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            tableView.endUpdates()
+        }
+    }
 }
 
 extension MainViewController: MainViewProtocol {
     func addUser() {
-        print(1)
         tableView.reloadData()
-
     }
 }
