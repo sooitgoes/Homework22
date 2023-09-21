@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D104AAC52ABC40B400BF1777 /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D104AAC42ABC40B400BF1777 /* UIView + Extension.swift */; };
+		D104AAC82ABC487B00BF1777 /* ModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D104AAC72ABC487B00BF1777 /* ModuleBuilder.swift */; };
 		D1164C272ABB2FE300E62157 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1164C262ABB2FE300E62157 /* User.swift */; };
 		D1164C292ABB302500E62157 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1164C282ABB302500E62157 /* MainPresenter.swift */; };
 		D129F0412ABAEF97001A3849 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D129F0402ABAEF97001A3849 /* AppDelegate.swift */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D104AAC42ABC40B400BF1777 /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
+		D104AAC72ABC487B00BF1777 /* ModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBuilder.swift; sourceTree = "<group>"; };
 		D1164C262ABB2FE300E62157 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D1164C282ABB302500E62157 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		D129F03D2ABAEF97001A3849 /* Homework22.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homework22.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,6 +45,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D104AAC62ABC40C100BF1777 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				D104AAC42ABC40B400BF1777 /* UIView + Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		D104AAC92ABC487F00BF1777 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				D104AAC72ABC487B00BF1777 /* ModuleBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
 		D1164C202ABB2CAB00E62157 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -73,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				D1164C252ABB2FC600E62157 /* MainModule */,
+				D104AAC62ABC40C100BF1777 /* Extension */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -91,6 +112,7 @@
 				D1164C2B2ABB303600E62157 /* Model */,
 				D1164C242ABB2FB500E62157 /* View */,
 				D1164C2A2ABB302900E62157 /* Presenter */,
+				D104AAC92ABC487F00BF1777 /* Builder */,
 			);
 			path = MainModule;
 			sourceTree = "<group>";
@@ -210,7 +232,9 @@
 				D1164C272ABB2FE300E62157 /* User.swift in Sources */,
 				D1164C292ABB302500E62157 /* MainPresenter.swift in Sources */,
 				D129F0452ABAEF97001A3849 /* MainViewController.swift in Sources */,
+				D104AAC82ABC487B00BF1777 /* ModuleBuilder.swift in Sources */,
 				D129F0412ABAEF97001A3849 /* AppDelegate.swift in Sources */,
+				D104AAC52ABC40B400BF1777 /* UIView + Extension.swift in Sources */,
 				D129F0432ABAEF97001A3849 /* SceneDelegate.swift in Sources */,
 				D129F04B2ABAEF97001A3849 /* Homework22.xcdatamodeld in Sources */,
 			);
