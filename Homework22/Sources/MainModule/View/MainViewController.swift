@@ -36,6 +36,7 @@ class MainViewController: UIViewController {
         let table = UITableView(frame: .zero, style: .insetGrouped)
         table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         table.dataSource = self
+        table.delegate = self
         table.translatesAutoresizingMaskIntoConstraints = false
         return table
     }()
@@ -99,12 +100,22 @@ extension MainViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            tableView.beginUpdates()
             let index = indexPath.row
+            tableView.beginUpdates()
             presenter?.delete(index)
             tableView.deleteRows(at: [indexPath], with: .automatic)
             tableView.endUpdates()
         }
+    }
+}
+
+// MARK: - UITableViewDelegate
+extension MainViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let user = presenter?.users?[indexPath.row]
+        let viewController = ModuleBuilder.createDetailModule(user: user)
+        tableView.deselectRow(at: indexPath, animated: true)
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }
 

@@ -8,7 +8,7 @@
 import Foundation
 
 struct User {
-    let name: String
-    let birthDate: String?
-    let gender: String?
+    var name: String
+    var birthDate: String?
+    var gender: String?
 }
