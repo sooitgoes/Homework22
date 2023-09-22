@@ -87,12 +87,14 @@ class DetailViewController: UIViewController {
             nameTextView.heightAnchor.constraint(equalToConstant: 35),
             genderTextView.heightAnchor.constraint(equalToConstant: 35),
             birthDayTextView.heightAnchor.constraint(equalToConstant: 35),
+
             button.widthAnchor.constraint(equalToConstant: 80),
             button.heightAnchor.constraint(equalToConstant: 44)
         ])
     }
 }
 
+// MARK: - DetailViewProtocol
 extension DetailViewController: DetailViewProtocol {
     func setUserData(_ userData: User?) {
         nameTextView.text = userData?.name

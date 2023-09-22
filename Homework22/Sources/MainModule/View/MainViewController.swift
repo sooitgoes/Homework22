@@ -119,6 +119,7 @@ extension MainViewController: UITableViewDelegate {
     }
 }
 
+// MARK: - MainViewProtocol
 extension MainViewController: MainViewProtocol {
     func addUser() {
         tableView.reloadData()
