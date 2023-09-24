@@ -9,7 +9,7 @@ import UIKit
 
 protocol BuilderProtocol {
     static func createMainModule() -> UIViewController
-    static func createDetailModule(user: User?) -> UIViewController
+    static func createDetailModule(user: UserEntity?) -> UIViewController
 }
 
 class ModuleBuilder: BuilderProtocol {
@@ -21,7 +21,7 @@ class ModuleBuilder: BuilderProtocol {
         return view
     }
 
-    static func createDetailModule(user: User?) -> UIViewController {
+    static func createDetailModule(user: UserEntity?) -> UIViewController {
         let view = DetailViewController()
         let presenter = DetailPresenter(view: view, userData: user)
         view.presenter = presenter

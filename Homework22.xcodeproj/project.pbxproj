@@ -19,6 +19,9 @@
 		D129F04B2ABAEF97001A3849 /* Homework22.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D129F0492ABAEF97001A3849 /* Homework22.xcdatamodeld */; };
 		D129F04D2ABAEF98001A3849 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D129F04C2ABAEF98001A3849 /* Assets.xcassets */; };
 		D129F0502ABAEF98001A3849 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D129F04E2ABAEF98001A3849 /* LaunchScreen.storyboard */; };
+		D19177502AC07D5600784C73 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D191774F2AC07D5600784C73 /* CoreDataManager.swift */; };
+		D19177542AC080DB00784C73 /* UserEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19177522AC080DB00784C73 /* UserEntity+CoreDataClass.swift */; };
+		D19177552AC080DB00784C73 /* UserEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19177532AC080DB00784C73 /* UserEntity+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,9 @@
 		D129F04C2ABAEF98001A3849 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D129F04F2ABAEF98001A3849 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D129F0512ABAEF98001A3849 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D191774F2AC07D5600784C73 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		D19177522AC080DB00784C73 /* UserEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D19177532AC080DB00784C73 /* UserEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,7 +130,9 @@
 				D1164C252ABB2FC600E62157 /* MainModule */,
 				D104AACA2ABC944A00BF1777 /* DetailModule */,
 				D104AAC92ABC487F00BF1777 /* Builder */,
+				D19177562AC0814B00784C73 /* DataBaseModels */,
 				D104AAC62ABC40C100BF1777 /* Extension */,
+				D19177512AC07D5C00784C73 /* CoreDataManager */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -187,6 +195,31 @@
 				D1164C222ABB2F9A00E62157 /* App */,
 			);
 			path = Homework22;
+			sourceTree = "<group>";
+		};
+		D19177512AC07D5C00784C73 /* CoreDataManager */ = {
+			isa = PBXGroup;
+			children = (
+				D191774F2AC07D5600784C73 /* CoreDataManager.swift */,
+			);
+			path = CoreDataManager;
+			sourceTree = "<group>";
+		};
+		D19177562AC0814B00784C73 /* DataBaseModels */ = {
+			isa = PBXGroup;
+			children = (
+				D19177572AC0818A00784C73 /* UserEntity */,
+			);
+			path = DataBaseModels;
+			sourceTree = "<group>";
+		};
+		D19177572AC0818A00784C73 /* UserEntity */ = {
+			isa = PBXGroup;
+			children = (
+				D19177522AC080DB00784C73 /* UserEntity+CoreDataClass.swift */,
+				D19177532AC080DB00784C73 /* UserEntity+CoreDataProperties.swift */,
+			);
+			path = UserEntity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,6 +293,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D104AACC2ABC946A00BF1777 /* DetailViewController.swift in Sources */,
+				D19177552AC080DB00784C73 /* UserEntity+CoreDataProperties.swift in Sources */,
+				D19177542AC080DB00784C73 /* UserEntity+CoreDataClass.swift in Sources */,
 				D1164C272ABB2FE300E62157 /* User.swift in Sources */,
 				D1164C292ABB302500E62157 /* MainPresenter.swift in Sources */,
 				D104AACF2ABC948100BF1777 /* DetailPresenter.swift in Sources */,
@@ -269,6 +304,7 @@
 				D104AAC52ABC40B400BF1777 /* UIView + Extension.swift in Sources */,
 				D129F0432ABAEF97001A3849 /* SceneDelegate.swift in Sources */,
 				D129F04B2ABAEF97001A3849 /* Homework22.xcdatamodeld in Sources */,
+				D19177502AC07D5600784C73 /* CoreDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -92,11 +92,17 @@ class DetailViewController: UIViewController {
             button.heightAnchor.constraint(equalToConstant: 44)
         ])
     }
+
+    // MARK: - Action
+    @objc func buttonPressed() {
+        
+    }
+
 }
 
 // MARK: - DetailViewProtocol
 extension DetailViewController: DetailViewProtocol {
-    func setUserData(_ userData: User?) {
+    func setUserData(_ userData: UserEntity?) {
         nameTextView.text = userData?.name
         birthDayTextView.text = userData?.birthDate
         genderTextView.text = userData?.gender

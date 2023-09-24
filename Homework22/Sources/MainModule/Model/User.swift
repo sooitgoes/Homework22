@@ -7,8 +7,20 @@
 
 import Foundation
 
-struct User {
-    var name: String
-    var birthDate: String?
-    var gender: String?
-}
+//struct User {
+//    var name: String
+//    var birthDate: String?
+//    var gender: String?
+//
+//    init(name: String, birthDate: String?, gender: String?) {
+//        self.name = name
+//        self.birthDate = birthDate
+//        self.gender = gender
+//    }
+//
+//    init(entity: UserEntity) {
+//        self.name = entity.name ?? ""
+//        self.birthDate = entity.birthDate
+//        self.gender = entity.gender
+//    }
+//}

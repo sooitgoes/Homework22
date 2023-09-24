@@ -9,21 +9,21 @@ import Foundation
 
 //MARK: - DetailViewProtocol
 protocol DetailViewProtocol: AnyObject {
-    func setUserData(_ userData: User?)
+    func setUserData(_ userData: UserEntity?)
 }
 
 //MARK: - DetailPresenterProtocol
 protocol DetailPresenterProtocol: AnyObject {
-    init(view: DetailViewProtocol, userData: User?)
+    init(view: DetailViewProtocol, userData: UserEntity?)
     func showUserData()
 }
 
 //MARK: - DetailPresenter
 class DetailPresenter: DetailPresenterProtocol {
     weak var view: DetailViewProtocol?
-    var userData: User?
+    var userData: UserEntity?
     
-    required init(view: DetailViewProtocol, userData: User?) {
+    required init(view: DetailViewProtocol, userData: UserEntity?) {
         self.view = view
         self.userData = userData
     }

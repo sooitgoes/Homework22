@@ -15,24 +15,24 @@ protocol MainViewProtocol: AnyObject {
 // MARK: - MainPresenterProtocol
 protocol MainPresenterProtocol: AnyObject {
     init(view: MainViewProtocol)
-    var users: [User]? { get set }
+    var users: [UserEntity]? { get set }
     func getUsers(_ userName: String)
     func delete(_ userIndex: Int)
 }
 
 // MARK: - MainPresenter
 class MainPresenter: MainPresenterProtocol {
-    var users: [User]?
+    var users: [UserEntity]?
     weak var view: MainViewProtocol?
 
     required init(view: MainViewProtocol) {
         self.view = view
-        self.users = [User]()
+        self.users = [UserEntity]()
     }
 
     func getUsers(_ userName: String) {
-        let newUser = User(name: userName, birthDate: nil, gender: nil)
-        users?.append(newUser)
+//        let newUser = User(name: userName, birthDate: nil, gender: nil)
+//        users?.append(newUser)
         view?.addUser()
     }
 
