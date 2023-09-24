@@ -44,6 +44,7 @@ class DetailViewController: UIViewController {
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.black.cgColor
         button.layer.cornerRadius = 5
+        button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -95,9 +96,8 @@ class DetailViewController: UIViewController {
 
     // MARK: - Action
     @objc func buttonPressed() {
-        
+        presenter?.update(name: nameTextView.text, birthDate: birthDayTextView.text, gender: genderTextView.text)
     }
-
 }
 
 // MARK: - DetailViewProtocol

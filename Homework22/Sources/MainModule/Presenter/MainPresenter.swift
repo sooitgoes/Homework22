@@ -17,7 +17,8 @@ protocol MainPresenterProtocol: AnyObject {
     init(view: MainViewProtocol)
     var users: [UserEntity]? { get set }
     func getUsers(_ userName: String)
-    func delete(_ userIndex: Int)
+    func delete(_ user: UserEntity, userIndex: Int)
+    func fetchUsers()
 }
 
 // MARK: - MainPresenter
@@ -30,13 +31,18 @@ class MainPresenter: MainPresenterProtocol {
         self.users = [UserEntity]()
     }
 
+    func fetchUsers() {
+        users = UserEntity.fetchAll()
+    }
+
     func getUsers(_ userName: String) {
-//        let newUser = User(name: userName, birthDate: nil, gender: nil)
-//        users?.append(newUser)
+        let user = UserEntity.create(name: userName, birthDate: nil, gender: nil)
+        users?.append(user)
         view?.addUser()
     }
 
-    func delete(_ userIndex: Int) {
+    func delete(_ user: UserEntity, userIndex: Int) {
+        UserEntity.delete(user)
         users?.remove(at: userIndex)
     }
 }

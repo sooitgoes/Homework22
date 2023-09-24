@@ -11,14 +11,15 @@ import CoreData
 
 public class UserEntity: NSManagedObject {
     
-    static func create(name: String, birthDate: String?, gender: String?) {
+    static func create(name: String, birthDate: String?, gender: String?) -> UserEntity {
         let context = CoreDataManager.shared.persistentContainer.viewContext
         let userEntity = UserEntity(context: context)
         userEntity.name = name
         userEntity.birthDate = birthDate
         userEntity.gender = gender
-        
         CoreDataManager.shared.saveContext()
+
+        return userEntity
     }
     
     static func fetchAll() -> [UserEntity] {
@@ -36,10 +37,10 @@ public class UserEntity: NSManagedObject {
         CoreDataManager.shared.saveContext()
     }
     
-    static func update(_ user: UserEntity, name: String, birthDate: String?, gender: String?) {
-        user.name = name
-        user.birthDate = birthDate
-        user.gender = gender
+    static func update(_ user: UserEntity?, name: String, birthDate: String?, gender: String?) {
+        user?.name = name
+        user?.birthDate = birthDate
+        user? .gender = gender
         
         CoreDataManager.shared.saveContext()
     }

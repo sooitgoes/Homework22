@@ -11,7 +11,6 @@
 		D104AAC82ABC487B00BF1777 /* ModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D104AAC72ABC487B00BF1777 /* ModuleBuilder.swift */; };
 		D104AACC2ABC946A00BF1777 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D104AACB2ABC946A00BF1777 /* DetailViewController.swift */; };
 		D104AACF2ABC948100BF1777 /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D104AACE2ABC948100BF1777 /* DetailPresenter.swift */; };
-		D1164C272ABB2FE300E62157 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1164C262ABB2FE300E62157 /* User.swift */; };
 		D1164C292ABB302500E62157 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1164C282ABB302500E62157 /* MainPresenter.swift */; };
 		D129F0412ABAEF97001A3849 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D129F0402ABAEF97001A3849 /* AppDelegate.swift */; };
 		D129F0432ABAEF97001A3849 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D129F0422ABAEF97001A3849 /* SceneDelegate.swift */; };
@@ -29,7 +28,6 @@
 		D104AAC72ABC487B00BF1777 /* ModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBuilder.swift; sourceTree = "<group>"; };
 		D104AACB2ABC946A00BF1777 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		D104AACE2ABC948100BF1777 /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
-		D1164C262ABB2FE300E62157 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D1164C282ABB302500E62157 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		D129F03D2ABAEF97001A3849 /* Homework22.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homework22.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D129F0402ABAEF97001A3849 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -148,7 +146,6 @@
 		D1164C252ABB2FC600E62157 /* MainModule */ = {
 			isa = PBXGroup;
 			children = (
-				D1164C2B2ABB303600E62157 /* Model */,
 				D1164C242ABB2FB500E62157 /* View */,
 				D1164C2A2ABB302900E62157 /* Presenter */,
 			);
@@ -161,14 +158,6 @@
 				D1164C282ABB302500E62157 /* MainPresenter.swift */,
 			);
 			path = Presenter;
-			sourceTree = "<group>";
-		};
-		D1164C2B2ABB303600E62157 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				D1164C262ABB2FE300E62157 /* User.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		D129F0342ABAEF97001A3849 = {
@@ -295,7 +284,6 @@
 				D104AACC2ABC946A00BF1777 /* DetailViewController.swift in Sources */,
 				D19177552AC080DB00784C73 /* UserEntity+CoreDataProperties.swift in Sources */,
 				D19177542AC080DB00784C73 /* UserEntity+CoreDataClass.swift in Sources */,
-				D1164C272ABB2FE300E62157 /* User.swift in Sources */,
 				D1164C292ABB302500E62157 /* MainPresenter.swift in Sources */,
 				D104AACF2ABC948100BF1777 /* DetailPresenter.swift in Sources */,
 				D129F0452ABAEF97001A3849 /* MainViewController.swift in Sources */,

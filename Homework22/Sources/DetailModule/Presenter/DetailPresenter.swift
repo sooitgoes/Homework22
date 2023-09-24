@@ -16,6 +16,7 @@ protocol DetailViewProtocol: AnyObject {
 protocol DetailPresenterProtocol: AnyObject {
     init(view: DetailViewProtocol, userData: UserEntity?)
     func showUserData()
+    func update(name: String, birthDate: String?, gender: String?)
 }
 
 //MARK: - DetailPresenter
@@ -30,6 +31,10 @@ class DetailPresenter: DetailPresenterProtocol {
     
     func showUserData() {
         view?.setUserData(userData)
+    }
+
+    func update(name: String, birthDate: String?, gender: String?) {
+        UserEntity.update(userData, name: name, birthDate: birthDate, gender: gender)
     }
 }
 

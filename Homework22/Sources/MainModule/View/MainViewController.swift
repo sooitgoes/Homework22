@@ -48,6 +48,7 @@ class MainViewController: UIViewController {
         setupNavBar()
         setupHierachy()
         setupLayout()
+        presenter?.fetchUsers()
     }
 
     // MARK: - Setup
@@ -100,9 +101,10 @@ extension MainViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            guard let user = presenter?.users?[indexPath.row] else { return }
             let index = indexPath.row
             tableView.beginUpdates()
-            presenter?.delete(index)
+            presenter?.delete(user, userIndex: index)
             tableView.deleteRows(at: [indexPath], with: .automatic)
             tableView.endUpdates()
         }
