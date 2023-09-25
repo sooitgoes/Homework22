@@ -9,6 +9,7 @@ import UIKit
 
 class DetailViewController: UIViewController {
     var presenter: DetailPresenterProtocol?
+    private var isEditMode = true
 
     // MARK: - UI Elements
     private lazy var nameTextView: UITextView = {
@@ -22,7 +23,6 @@ class DetailViewController: UIViewController {
     private lazy var birthDayTextView: UITextView = {
         let view = UITextView()
         view.font = .systemFont(ofSize: 15, weight: .medium)
-
         view.backgroundColor = .systemGray
         view.layer.cornerRadius = 10
         return view
@@ -31,7 +31,6 @@ class DetailViewController: UIViewController {
     private lazy var genderTextView: UITextView = {
         let view = UITextView()
         view.font = .systemFont(ofSize: 15, weight: .medium)
-
         view.backgroundColor = .systemGray
         view.layer.cornerRadius = 10
         return view
@@ -45,6 +44,36 @@ class DetailViewController: UIViewController {
         button.layer.borderColor = UIColor.black.cgColor
         button.layer.cornerRadius = 5
         button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+
+    private lazy var personIcon: UIButton = {
+        let button = UIButton()
+        let icon = UIImage(systemName: "person")
+        button.tintColor = .systemBlue
+        button.setImage(icon, for: .normal)
+        button.setPreferredSymbolConfiguration(UIImage.SymbolConfiguration(pointSize: 25, weight: .medium), forImageIn: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+
+    private lazy var birthdayIcon: UIButton = {
+        let button = UIButton()
+        let icon = UIImage(systemName: "person.2.circle")
+        button.tintColor = .systemBlue
+        button.setImage(icon, for: .normal)
+        button.setPreferredSymbolConfiguration(UIImage.SymbolConfiguration(pointSize: 25, weight: .medium), forImageIn: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+
+    private lazy var genderIcon: UIButton = {
+        let button = UIButton()
+        let icon = UIImage(systemName: "calendar")
+        button.tintColor = .systemBlue
+        button.setImage(icon, for: .normal)
+        button.setPreferredSymbolConfiguration(UIImage.SymbolConfiguration(pointSize: 25, weight: .medium), forImageIn: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -76,13 +105,13 @@ class DetailViewController: UIViewController {
     }
 
     private func setupHierarchy() {
-        view.addSubViews(views: [stack])
+        view.addSubViews(views: [stack, personIcon, birthdayIcon, genderIcon])
     }
 
     private func setupLayout() {
         NSLayoutConstraint.activate([
             stack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            stack.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20),
+            stack.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 60),
             stack.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20),
 
             nameTextView.heightAnchor.constraint(equalToConstant: 35),
@@ -90,13 +119,45 @@ class DetailViewController: UIViewController {
             birthDayTextView.heightAnchor.constraint(equalToConstant: 35),
 
             button.widthAnchor.constraint(equalToConstant: 80),
-            button.heightAnchor.constraint(equalToConstant: 44)
+            button.heightAnchor.constraint(equalToConstant: 44),
+
+            personIcon.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 25),
+            personIcon.rightAnchor.constraint(equalTo: stack.leftAnchor, constant: -5),
+
+            birthdayIcon.topAnchor.constraint(equalTo: personIcon.bottomAnchor, constant: 25),
+            birthdayIcon.rightAnchor.constraint(equalTo: stack.leftAnchor, constant: -5),
+
+            genderIcon.topAnchor.constraint(equalTo: birthdayIcon.bottomAnchor, constant: 25),
+            genderIcon.rightAnchor.constraint(equalTo: stack.leftAnchor, constant: -5),
         ])
     }
 
     // MARK: - Action
     @objc func buttonPressed() {
-        presenter?.update(name: nameTextView.text, birthDate: birthDayTextView.text, gender: genderTextView.text)
+        let name = nameTextView.text
+        let birthDate = birthDayTextView.text
+        let gender = genderTextView.text
+
+        if isEditMode {
+            presenter?.update(name: name ?? "", birthDate: birthDate, gender: gender)
+            button.setTitle("Edit", for: .normal)
+            nameTextView.isEditable = false
+            birthDayTextView.isEditable = false
+            genderTextView.isEditable = false
+            isEditMode = false
+        } else {
+            button.setTitle("Save", for: .normal)
+            nameTextView.isEditable = true
+            birthDayTextView.isEditable = true
+            genderTextView.isEditable = true
+            isEditMode = true
+        }
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        nameTextView.resignFirstResponder()
+        birthDayTextView.resignFirstResponder()
+        genderTextView.resignFirstResponder()
     }
 }
 
@@ -108,3 +169,4 @@ extension DetailViewController: DetailViewProtocol {
         genderTextView.text = userData?.gender
     }
 }
+

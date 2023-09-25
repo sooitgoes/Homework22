@@ -24,10 +24,12 @@ class MainViewController: UIViewController {
 
     private lazy var nameTextField: UITextField = {
         let txfld = UITextField()
+        let paddingView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: 20))
         txfld.placeholder = "Print your name here"
         txfld.layer.cornerRadius = 10
         txfld.backgroundColor = .placeholderText
-        txfld.textAlignment = .center
+        txfld.leftView = paddingView
+        txfld.leftViewMode = .always
         txfld.translatesAutoresizingMaskIntoConstraints = false
         return txfld
     }()
@@ -51,6 +53,10 @@ class MainViewController: UIViewController {
         presenter?.fetchUsers()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
     // MARK: - Setup
     private func setupNavBar() {
         title = "Users"
@@ -82,42 +88,10 @@ class MainViewController: UIViewController {
 
     // MARK: - Action
     @objc func buttonPressed() {
-        presenter?.getUsers(nameTextField.text ?? "")
-    }
-}
-
-// MARK: - UITableViewDataSource
-extension MainViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        presenter?.users?.count ?? 0
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let users = presenter?.users?[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = users?.name
-        return cell
-    }
-
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            guard let user = presenter?.users?[indexPath.row] else { return }
-            let index = indexPath.row
-            tableView.beginUpdates()
-            presenter?.delete(user, userIndex: index)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
-            tableView.endUpdates()
+        if !(nameTextField.text?.isEmpty ?? Bool()) {
+            presenter?.getUsers(nameTextField.text ?? "")
+            nameTextField.text = ""
         }
-    }
-}
-
-// MARK: - UITableViewDelegate
-extension MainViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let user = presenter?.users?[indexPath.row]
-        let viewController = ModuleBuilder.createDetailModule(user: user)
-        tableView.deselectRow(at: indexPath, animated: true)
-        navigationController?.pushViewController(viewController, animated: true)
     }
 }
 
@@ -127,3 +101,6 @@ extension MainViewController: MainViewProtocol {
         tableView.reloadData()
     }
 }
+
+
+

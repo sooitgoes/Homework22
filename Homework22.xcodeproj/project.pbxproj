@@ -18,6 +18,8 @@
 		D129F04B2ABAEF97001A3849 /* Homework22.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D129F0492ABAEF97001A3849 /* Homework22.xcdatamodeld */; };
 		D129F04D2ABAEF98001A3849 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D129F04C2ABAEF98001A3849 /* Assets.xcassets */; };
 		D129F0502ABAEF98001A3849 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D129F04E2ABAEF98001A3849 /* LaunchScreen.storyboard */; };
+		D1536ADA2AC1BC000007FE04 /* MainViewController + UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1536AD92AC1BC000007FE04 /* MainViewController + UITableViewDataSource.swift */; };
+		D1536ADC2AC1BC3B0007FE04 /* MainViewController + UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1536ADB2AC1BC3B0007FE04 /* MainViewController + UITableViewDelegate.swift */; };
 		D19177502AC07D5600784C73 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D191774F2AC07D5600784C73 /* CoreDataManager.swift */; };
 		D19177542AC080DB00784C73 /* UserEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19177522AC080DB00784C73 /* UserEntity+CoreDataClass.swift */; };
 		D19177552AC080DB00784C73 /* UserEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19177532AC080DB00784C73 /* UserEntity+CoreDataProperties.swift */; };
@@ -37,6 +39,8 @@
 		D129F04C2ABAEF98001A3849 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D129F04F2ABAEF98001A3849 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D129F0512ABAEF98001A3849 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D1536AD92AC1BC000007FE04 /* MainViewController + UITableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController + UITableViewDataSource.swift"; sourceTree = "<group>"; };
+		D1536ADB2AC1BC3B0007FE04 /* MainViewController + UITableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController + UITableViewDelegate.swift"; sourceTree = "<group>"; };
 		D191774F2AC07D5600784C73 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		D19177522AC080DB00784C73 /* UserEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		D19177532AC080DB00784C73 /* UserEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -57,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				D104AAC42ABC40B400BF1777 /* UIView + Extension.swift */,
+				D1536ADD2AC1BC5F0007FE04 /* MainViewController */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -186,6 +191,15 @@
 			path = Homework22;
 			sourceTree = "<group>";
 		};
+		D1536ADD2AC1BC5F0007FE04 /* MainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D1536AD92AC1BC000007FE04 /* MainViewController + UITableViewDataSource.swift */,
+				D1536ADB2AC1BC3B0007FE04 /* MainViewController + UITableViewDelegate.swift */,
+			);
+			path = MainViewController;
+			sourceTree = "<group>";
+		};
 		D19177512AC07D5C00784C73 /* CoreDataManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -287,9 +301,11 @@
 				D1164C292ABB302500E62157 /* MainPresenter.swift in Sources */,
 				D104AACF2ABC948100BF1777 /* DetailPresenter.swift in Sources */,
 				D129F0452ABAEF97001A3849 /* MainViewController.swift in Sources */,
+				D1536ADA2AC1BC000007FE04 /* MainViewController + UITableViewDataSource.swift in Sources */,
 				D104AAC82ABC487B00BF1777 /* ModuleBuilder.swift in Sources */,
 				D129F0412ABAEF97001A3849 /* AppDelegate.swift in Sources */,
 				D104AAC52ABC40B400BF1777 /* UIView + Extension.swift in Sources */,
+				D1536ADC2AC1BC3B0007FE04 /* MainViewController + UITableViewDelegate.swift in Sources */,
 				D129F0432ABAEF97001A3849 /* SceneDelegate.swift in Sources */,
 				D129F04B2ABAEF97001A3849 /* Homework22.xcdatamodeld in Sources */,
 				D19177502AC07D5600784C73 /* CoreDataManager.swift in Sources */,
