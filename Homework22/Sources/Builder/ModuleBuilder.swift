@@ -7,23 +7,25 @@
 
 import UIKit
 
+//MARK: - BuilderProtocol
 protocol BuilderProtocol {
-    static func createMainModule() -> UIViewController
-    static func createDetailModule(user: UserEntity?) -> UIViewController
+    func createMainModule(router: RouterProtocol) -> UIViewController
+    func createDetailModule(user: UserEntity?, router: RouterProtocol) -> UIViewController
 }
 
+//MARK: - ModuleBuilder
 class ModuleBuilder: BuilderProtocol {
-    static func createMainModule() -> UIViewController {
+    func createMainModule(router: RouterProtocol) -> UIViewController {
         let view = MainViewController()
-        let presenter = MainPresenter(view: view)
+        let presenter = MainPresenter(view: view, router: router)
         view.presenter = presenter
-        
+
         return view
     }
 
-    static func createDetailModule(user: UserEntity?) -> UIViewController {
+    func createDetailModule(user: UserEntity?, router: RouterProtocol) -> UIViewController {
         let view = DetailViewController()
-        let presenter = DetailPresenter(view: view, userData: user)
+        let presenter = DetailPresenter(view: view, user: user)
         view.presenter = presenter
 
         return view

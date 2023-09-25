@@ -14,21 +14,24 @@ protocol MainViewProtocol: AnyObject {
 
 // MARK: - MainPresenterProtocol
 protocol MainPresenterProtocol: AnyObject {
-    init(view: MainViewProtocol)
+    init(view: MainViewProtocol, router: RouterProtocol)
     var users: [UserEntity]? { get set }
     func getUsers(_ userName: String)
     func delete(_ user: UserEntity, userIndex: Int)
     func fetchUsers()
+    func goToDetail(user: UserEntity?)
 }
 
 // MARK: - MainPresenter
 class MainPresenter: MainPresenterProtocol {
     var users: [UserEntity]?
+    var router: RouterProtocol?
     weak var view: MainViewProtocol?
 
-    required init(view: MainViewProtocol) {
+    required init(view: MainViewProtocol, router: RouterProtocol) {
         self.view = view
         self.users = [UserEntity]()
+        self.router = router
     }
 
     func fetchUsers() {
@@ -44,5 +47,9 @@ class MainPresenter: MainPresenterProtocol {
     func delete(_ user: UserEntity, userIndex: Int) {
         UserEntity.delete(user)
         users?.remove(at: userIndex)
+    }
+
+    func goToDetail(user: UserEntity?) {
+        router?.showDetail(user: user)
     }
 }

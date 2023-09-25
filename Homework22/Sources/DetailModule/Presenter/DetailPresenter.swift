@@ -9,12 +9,12 @@ import Foundation
 
 //MARK: - DetailViewProtocol
 protocol DetailViewProtocol: AnyObject {
-    func setUserData(_ userData: UserEntity?)
+    func setUserData(_ user: UserEntity?)
 }
 
 //MARK: - DetailPresenterProtocol
 protocol DetailPresenterProtocol: AnyObject {
-    init(view: DetailViewProtocol, userData: UserEntity?)
+    init(view: DetailViewProtocol, user: UserEntity?)
     func showUserData()
     func update(name: String, birthDate: String?, gender: String?)
 }
@@ -22,19 +22,19 @@ protocol DetailPresenterProtocol: AnyObject {
 //MARK: - DetailPresenter
 class DetailPresenter: DetailPresenterProtocol {
     weak var view: DetailViewProtocol?
-    var userData: UserEntity?
+    var user: UserEntity?
     
-    required init(view: DetailViewProtocol, userData: UserEntity?) {
+    required init(view: DetailViewProtocol, user: UserEntity?) {
         self.view = view
-        self.userData = userData
+        self.user = user
     }
     
     func showUserData() {
-        view?.setUserData(userData)
+        view?.setUserData(user)
     }
 
     func update(name: String, birthDate: String?, gender: String?) {
-        UserEntity.update(userData, name: name, birthDate: birthDate, gender: gender)
+        UserEntity.update(user, name: name, birthDate: birthDate, gender: gender)
     }
 }
 

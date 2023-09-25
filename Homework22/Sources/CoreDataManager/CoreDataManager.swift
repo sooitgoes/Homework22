@@ -10,7 +10,6 @@ import CoreData
 
 class CoreDataManager {
     static let shared = CoreDataManager()
-
     private init() { }
     
     // MARK: - Core Data stack
@@ -36,5 +35,4 @@ class CoreDataManager {
             }
         }
     }
-
 }

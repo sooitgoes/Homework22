@@ -10,8 +10,7 @@ import UIKit
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let user = presenter?.users?[indexPath.row]
-        let viewController = ModuleBuilder.createDetailModule(user: user)
         tableView.deselectRow(at: indexPath, animated: true)
-        navigationController?.pushViewController(viewController, animated: true)
+        presenter?.goToDetail(user: user)
     }
 }

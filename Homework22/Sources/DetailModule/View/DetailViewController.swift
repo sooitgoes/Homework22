@@ -48,34 +48,31 @@ class DetailViewController: UIViewController {
         return button
     }()
 
-    private lazy var personIcon: UIButton = {
-        let button = UIButton()
+    private lazy var personIcon: UIImageView = {
         let icon = UIImage(systemName: "person")
-        button.tintColor = .systemBlue
-        button.setImage(icon, for: .normal)
-        button.setPreferredSymbolConfiguration(UIImage.SymbolConfiguration(pointSize: 25, weight: .medium), forImageIn: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
+        let imageView = UIImageView(image: icon)
+        imageView.tintColor = .systemBlue
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
     }()
 
-    private lazy var birthdayIcon: UIButton = {
-        let button = UIButton()
+    private lazy var birthdayIcon: UIImageView = {
         let icon = UIImage(systemName: "person.2.circle")
-        button.tintColor = .systemBlue
-        button.setImage(icon, for: .normal)
-        button.setPreferredSymbolConfiguration(UIImage.SymbolConfiguration(pointSize: 25, weight: .medium), forImageIn: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
+        let imageView = UIImageView(image: icon)
+        imageView.tintColor = .systemBlue
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
     }()
 
-    private lazy var genderIcon: UIButton = {
-        let button = UIButton()
+    private lazy var genderIcon: UIImageView = {
         let icon = UIImage(systemName: "calendar")
-        button.tintColor = .systemBlue
-        button.setImage(icon, for: .normal)
-        button.setPreferredSymbolConfiguration(UIImage.SymbolConfiguration(pointSize: 25, weight: .medium), forImageIn: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
+        let imageView = UIImageView(image: icon)
+        imageView.tintColor = .systemBlue
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
     }()
 
     private lazy var stack: UIStackView = {
@@ -101,7 +98,7 @@ class DetailViewController: UIViewController {
         let barButton = UIBarButtonItem(customView: button)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
         navigationController?.navigationItem.setRightBarButton(barButton, animated: true)
-        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
 
     private func setupHierarchy() {
@@ -123,12 +120,18 @@ class DetailViewController: UIViewController {
 
             personIcon.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 25),
             personIcon.rightAnchor.constraint(equalTo: stack.leftAnchor, constant: -5),
+            personIcon.heightAnchor.constraint(equalToConstant: 25),
+            personIcon.widthAnchor.constraint(equalToConstant: 25),
 
             birthdayIcon.topAnchor.constraint(equalTo: personIcon.bottomAnchor, constant: 25),
             birthdayIcon.rightAnchor.constraint(equalTo: stack.leftAnchor, constant: -5),
+            birthdayIcon.heightAnchor.constraint(equalToConstant: 30),
+            birthdayIcon.widthAnchor.constraint(equalToConstant: 30),
 
             genderIcon.topAnchor.constraint(equalTo: birthdayIcon.bottomAnchor, constant: 25),
             genderIcon.rightAnchor.constraint(equalTo: stack.leftAnchor, constant: -5),
+            genderIcon.heightAnchor.constraint(equalToConstant: 30),
+            genderIcon.widthAnchor.constraint(equalToConstant: 30)
         ])
     }
 
@@ -163,10 +166,10 @@ class DetailViewController: UIViewController {
 
 // MARK: - DetailViewProtocol
 extension DetailViewController: DetailViewProtocol {
-    func setUserData(_ userData: UserEntity?) {
-        nameTextView.text = userData?.name
-        birthDayTextView.text = userData?.birthDate
-        genderTextView.text = userData?.gender
+    func setUserData(_ user: UserEntity?) {
+        nameTextView.text = user?.name
+        birthDayTextView.text = user?.birthDate
+        genderTextView.text = user?.gender
     }
 }
 
